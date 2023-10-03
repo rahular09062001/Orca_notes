@@ -1,0 +1,12 @@
+\documentclass[12pt]{article}
+\title{Electron Structure Theroy \\ Practical Record}
+\author{RAHUL A R \\ 22msphcp10}
+\date{}
+\usepackage{minted}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\include{SPC}
+\end{document}
