@@ -1,0 +1,79 @@
+\section{Single Point Energy Calculation}
+\subsection{Using HF}
+\subsubsection{Using DEF2-SVP basis set}
+Here we are going to calculate the single point energy for $H_2O$ molecule using Hartree Fock method with DEF2-SVP basis \vspace{1cm}set.\\
+The input file is given below.
+\begin{minted}{python}
+! HF DEF2-SVP
+* xyz 0 1
+O     -0.222442    1.095097   -0.000000
+H      0.487836    0.874579    0.591082
+H      0.063978    1.773709   -0.599958
+*
+\end{minted}
+
+In the out put file obtained we can see a section with \textbf{Final Single Point Energy = -75.960755945571}
+
+\subsubsection{UHF and Spin Contamination}
+When we change the multiplicity from 1 to 2 by changing the charge from 0 to 1 the resulting output file have this spin contamination section. Here the UHF calculation is performed.
+\paragraph{}
+
+The input file is as given below.
+
+\begin{minted}{python}
+# Changing multiplicity from 1 to 3 
+# And will check the spin contamination
+
+!HF DEF2-SVP
+* xyz 1 2
+O     -0.222442    1.095097   -0.000000
+H      0.487836    0.874579    0.591082
+H      0.063978    1.773709   -0.599958
+
+\end{minted}
+
+\paragraph{}
+The output file contains the following section with title UHF spin contamination\\
+
+$----------------------$ \\
+UHF SPIN CONTAMINATION \\
+$----------------------$\\
+
+
+\begin{tabular}{l l}
+
+
+Expectation value of $<S^{**}2>$     &:     0.756107 \\
+Ideal value S*(S+1) for S=0.5   &:     0.750000 \\
+Deviation                       &:     0.006107 \\
+
+\end{tabular}
+\paragraph{}
+
+Here the \textbf{FINAL SINGLE PONT ENERGY = -75.562373748559}
+
+\subsection{Using DFT (B3LYP)}
+
+\subsubsection{Using DEF2-SVP basis set}
+
+Here we are going to caluculte the single pint energy of water molecule with DFT method. We are using \textbf{B3LYP} functional for our calculation and we are following the \textbf{DEF2-SVP} basis set. 
+\paragraph{}
+Our input file is as shown below.
+
+\begin{minted}{python}
+# The single point energy calculation using DFT method with 
+# the fuctional B3LYP
+# The basis set used is DEF2-SVP
+
+!B3LYP DEF2-SVP
+
+* xyz 0 1
+O     -0.222442    1.095097   -0.000000
+H      0.487836    0.874579    0.591082
+H      0.063978    1.773709   -0.599958
+*
+
+\end{minted}
+
+In the output file the \textbf{FINAL TOTAL SINGLE POINT ENERGY = -76.319970679729}
+
